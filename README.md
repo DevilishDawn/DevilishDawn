@@ -1,5 +1,6 @@
 <img width="320" height="256" alt="image" src="https://github.com/user-attachments/assets/bdac1546-92d6-4c2c-9353-587168b18b86"/>
 <img width="320" height="288" alt="image" src="https://github.com/user-attachments/assets/ec5f209f-ed84-4336-9aae-5343a29e08f7" />
+<img width="330" height="198" alt="image" src="https://github.com/user-attachments/assets/dca3415a-d67b-4c43-8695-b5207384e53a" />
 
 [![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=31dz7cmdh2b7nfwer6tml5nwkjha&cover_image=true&theme=novatorem&show_offline=false&background_color=121212&interchange=false&bar_color=8c00ff&bar_color_cover=false)](https://spotify-github-profile.kittinanx.com/api/view?uid=31dz7cmdh2b7nfwer6tml5nwkjha&redirect=true)
 
