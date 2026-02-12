@@ -2,3 +2,5 @@
 <h1>Welcome to my profile!</h1>
 <p>Name: Dawn</p>
 <p>Age: 14</p>
+<p>Favorite Anime: steins;gate</p>
+<p>Favorite Artist: DECO*27</p>
