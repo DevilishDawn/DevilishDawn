@@ -1,3 +1,9 @@
 img {
   border-radius: 12px
 }
+
+.LinkButtons {
+  border-radius: 12px;
+  width: 100px;
+  height: 100px;
+}
