@@ -3,10 +3,10 @@
 
 var button1 = document.getElementByClass("gitbtn");
 
-button.onmouseover = function() {
+button1.onmouseover = function() {
   document.getElementByClass("title") = "Github";
 }
 
-button.onmouseout = function() {
+button1.onmouseout = function() {
   document.getElementByClass("title") = "Dawn's Cozy Webpage";
 }
