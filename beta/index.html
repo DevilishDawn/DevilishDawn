@@ -3,30 +3,26 @@
   <head>
     <meta property="og:title" content="Dawn's Awesome Beta Profile!!">
     <meta property="og:url" content="https://devilishdawn.github.io/DevilishDawn/beta/">
-    <!-- Main XP.css Framework Stylesheet -->
     <link rel="stylesheet" href="https://cdn.cursors-4u.net/cursors/animated/konata-izumi-dancing-68cd9a9b-32.css">
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
     <title>Beta Bio</title>
     <style>
-      /* Desktop environment setup */
       body {
         margin: 0;
         padding: 0;
-        background-color: #5A7EDC; /* Classic Windows XP Desktop Blue */
+        background-color: #5A7EDC;
         overflow: hidden;
         height: 100vh;
         width: 100vw;
       }
 
-      /* Base layout for absolute window cards */
       .window {
         position: absolute;
         display: flex;
         flex-direction: column;
-        min-width: 400px; /* Prevents title bars and windows from collapsing */
+        min-width: 400px;
       }
 
-      /* Separate initial coordinate positioning */
       #blog-window {
         top: 40px;
         left: 40px;
@@ -37,7 +33,6 @@
         left: 480px;
       }
 
-      /* Clean visual layout inside the frame body */
       .window-body {
         margin: 4px;
         display: flex;
@@ -64,9 +59,8 @@
   <body>
     <div class="main" style="">
       <div class="widget" id="desktop-icons">
-        
+        <img src="https://cdn2.steamgriddb.com/icon/af1870edf5b2de354c2b90d442a299d3.ico">
       </div>
-      <!-- Blog Window Container -->
       <div class="window" id="blog-window">
         <div class="title-bar">
           <div class="title-bar-text" style="display: flex; gap: 4px; align-items: center;">
@@ -84,7 +78,6 @@
         </div>
       </div>
 
-      <!-- Winamp Media Window Container -->
       <div class="window" id="media-window">
         <div class="title-bar">
           <div class="title-bar-text" style="display: flex; gap: 4px; align-items: center;">
@@ -104,15 +97,12 @@
 
     </div>
 
-    <!-- Multi-window drag script setup -->
     <script type="module">
       import { Draggable } from 'https://cdn.jsdelivr.net/npm/@neodrag/vanilla@latest/+esm';
 
-      // Bind dragging modules cleanly across selector classes
       document.querySelectorAll(".window").forEach((win) => {
         new Draggable(win, { handle: ".title-bar" });
         
-        // Z-Index focus toggle trigger
         win.addEventListener('mousedown', () => {
           document.querySelectorAll(".window").forEach(w => w.style.zIndex = "1");
           win.style.zIndex = "10";
