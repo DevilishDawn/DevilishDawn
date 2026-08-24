@@ -10,7 +10,9 @@
     <div class="main">
           <script type="module">
             import { Draggable } from 'https://cdn.jsdelivr.net/npm/@neodrag/vanilla@latest/+esm';
-            new Draggable(draggableEl, { handle: '.title-bar' });
+
+            const window = document.querySelector(".window"); 
+            new Draggable(window, { handle: ".title-bar" });
           </script>
           <div class="window" style="width: content">
             <div class="title-bar">
