@@ -53,10 +53,11 @@
 
       #desktop-icons {
           display: inline-grid;
-          grid-auto-flow: column; /* XP lines up icons vertically first */
+          grid-auto-flow: column;
           grid-template-rows: repeat(auto-fill, 75px); 
           grid-template-columns: repeat(auto-fill, 75px);
-          gap: 43px; /* The exact Windows XP icon spacing */
+          gap: 43px;
+          z-index: 1;
       }
     </style>
   </head>
