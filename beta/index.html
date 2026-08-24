@@ -50,11 +50,21 @@
         border: none;
         background: #ffffff;
       }
+
+      #desktop-icons {
+          display: inline-grid;
+          grid-auto-flow: column; /* XP lines up icons vertically first */
+          grid-template-rows: repeat(auto-fill, 75px); 
+          grid-template-columns: repeat(auto-fill, 75px);
+          gap: 43px; /* The exact Windows XP icon spacing */
+      }
     </style>
   </head>
   <body>
     <div class="main" style="">
-      
+      <div class="widget" id="desktop-icons">
+        
+      </div>
       <!-- Blog Window Container -->
       <div class="window" id="blog-window">
         <div class="title-bar">
