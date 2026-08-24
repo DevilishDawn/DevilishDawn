@@ -10,10 +10,15 @@
     <div class="main" style="cursor: url(assets/cursor.cur)">
           <script type="module">
             import { Draggable } from 'https://cdn.jsdelivr.net/npm/@neodrag/vanilla@latest/+esm';
-
-            const window = document.querySelector(".window"); 
-
-            new Draggable(window, { handle: ".title-bar" });
+      
+            document.querySelectorAll(".window").forEach((win) => {
+              new Draggable(win, { handle: ".title-bar" });
+              
+              win.addEventListener('mousedown', () => {
+                document.querySelectorAll(".window").forEach(w => w.style.zIndex = "1");
+                win.style.zIndex = "10";
+              });
+            });
           </script>
           <div class="window" id="window_blog" style="width: fit-content; background-color: black;">
             <div class="title-bar">
