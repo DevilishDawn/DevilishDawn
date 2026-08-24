@@ -65,6 +65,7 @@
   </head>
   <body>
     <div class="main" id="main" style="">
+      <div id="app"></div>
       <div class="widget" id="desktop-icons">
         <img src="https://cdn2.steamgriddb.com/icon/af1870edf5b2de354c2b90d442a299d3.ico" width="48px" height="48px">
       </div>
@@ -150,7 +151,7 @@
       });
 
       // Returns a promise indicating when it's done loading.
-      webamp.renderInto(document.getElementById("main"));
+      webamp.renderInto(document.getElementById("app"));
     </script>
 
     <script type="module">
