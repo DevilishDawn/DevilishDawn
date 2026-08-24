@@ -3,61 +3,110 @@
   <head>
     <meta property="og:title" content="Dawn's Awesome Beta Profile!!">
     <meta property="og:url" content="https://yourwebsite.com">
+    <!-- Main XP.css Framework Stylesheet -->
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
     <title>Beta Bio</title>
+    
+    <style>
+      /* Desktop environment setup */
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #5A7EDC; /* Classic Windows XP Desktop Blue */
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      /* Base layout for absolute window cards */
+      .window {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        min-width: 400px; /* Prevents title bars and windows from collapsing */
+      }
+
+      /* Separate initial coordinate positioning */
+      #blog-window {
+        top: 40px;
+        left: 40px;
+      }
+
+      #media-window {
+        top: 120px;
+        left: 480px;
+      }
+
+      /* Clean visual layout inside the frame body */
+      .window-body {
+        margin: 4px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      iframe {
+        width: 100%;
+        height: 450px;
+        border: none;
+        background: #ffffff;
+      }
+    </style>
   </head>
   <body>
     <div class="main" style="cursor: url(assets/cursor.cur)">
-          <script type="module">
-            import { Draggable } from 'https://cdn.jsdelivr.net/npm/@neodrag/vanilla@latest/+esm';
       
-            document.querySelectorAll(".window").forEach((win) => {
-              new Draggable(win, { handle: ".title-bar" });
-              
-              win.addEventListener('mousedown', () => {
-                document.querySelectorAll(".window").forEach(w => w.style.zIndex = "1");
-                win.style.zIndex = "10";
-              });
-            });
-          </script>
-      <div class="window" id="window_blog" style="width: fit-content; background-color: black;">
+      <!-- Blog Window Container -->
+      <div class="window" id="blog-window">
         <div class="title-bar">
-          <div class="title-bar-text" style="display: flex; gap: 4px">
-            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/feb152e2-38e3-4ee6-ab4a-ed3ef8e04f54/dezt76w-34dad4a4-76b8-4062-a414-2eb1caf47d8d.png/v1/fill/w_600,h_600/3d_space_cadet__windows_xp__pinball_icon_upscale_by_insanity_designs_dezt76w-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6Ii9mL2ZlYjE1MmUyLTM4ZTMtNGVlNi1hYjRhLWVkM2VmOGUwNGY1NC9kZXp0NzZ3LTM0ZGFkNGE0LTc2YjgtNDA2Mi1hNDE0LTJlYjFjYWY0N2Q4ZC5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Fsz0zxuxPcYh-Z6w-mwnLH1yB7-Puc6BuneTL87BZ80" width="24px" height="24px">
-            <span style="padding: 6px;">Dawn's Blog!</span>
+          <div class="title-bar-text" style="display: flex; gap: 4px; align-items: center;">
+            <img src="https://wixmp.com" width="16px" height="16px">
+            <span>Dawn's Blog!</span>
           </div>
           <div class="title-bar-controls">
             <button aria-label="Minimize"></button>
             <button aria-label="Maximize"></button>
             <button aria-label="Close"></button>
           </div>
-          <div class="window-body">
-            <div class="blog">
-              <iframe src="blog.html" style="width: 375px; max-width: 650px; height: 450px; border: 0px solid #ccc; border-radius: 0px; box-shadow: 0 0px 0px rgba(0,0,0,0.1); background: #ffffff;"></iframe>
-              <div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="window" id="window_media" style="width: fit-content; background-color: black;">
-        <div class="title-bar">
-        <div class="title-bar-text" style="display: flex; gap: 4px">
-        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/feb152e2-38e3-4ee6-ab4a-ed3ef8e04f54/dezt76w-34dad4a4-76b8-4062-a414-2eb1caf47d8d.png/v1/fill/w_600,h_600/3d_space_cadet__windows_xp__pinball_icon_upscale_by_insanity_designs_dezt76w-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6Ii9mL2ZlYjE1MmUyLTM4ZTMtNGVlNi1hYjRhLWVkM2VmOGUwNGY1NC9kZXp0NzZ3LTM0ZGFkNGE0LTc2YjgtNDA2Mi1hNDE0LTJlYjFjYWY0N2Q4ZC5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Fsz0zxuxPcYh-Z6w-mwnLH1yB7-Puc6BuneTL87BZ80" width="24px" height="24px">
-        <span style="padding: 6px;">Dawn's Winamp!</span>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
         </div>
         <div class="window-body">
-          <div class="media">
-            <iframe src="media.html" style="width: 375px; max-width: 650px; height: 450px; border: 0px solid #ccc; border-radius: 0px; box-shadow: 0 0px 0px rgba(0,0,0,0.1); background: #ffffff;"></iframe>
-          </div>
+          <iframe src="blog.html"></iframe>
         </div>
       </div>
+
+      <!-- Winamp Media Window Container -->
+      <div class="window" id="media-window">
+        <div class="title-bar">
+          <div class="title-bar-text" style="display: flex; gap: 4px; align-items: center;">
+            <img src="https://wixmp.com" width="16px" height="16px">
+            <span>Dawn's Winamp!</span>
+          </div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <iframe src="media.html"></iframe>
+        </div>
+      </div>
+
     </div>
-  </div>
-</body>
+
+    <!-- Multi-window drag script setup -->
+    <script type="module">
+      import { Draggable } from 'https://jsdelivr.net';
+
+      // Bind dragging modules cleanly across selector classes
+      document.querySelectorAll(".window").forEach((win) => {
+        new Draggable(win, { handle: ".title-bar" });
+        
+        // Z-Index focus toggle trigger
+        win.addEventListener('mousedown', () => {
+          document.querySelectorAll(".window").forEach(w => w.style.zIndex = "1");
+          win.style.zIndex = "10";
+        });
+      });
+    </script>
+  </body>
 </html>
