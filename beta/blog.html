@@ -5,8 +5,14 @@
     </div>
     <script type="module"> 
       import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
-      document.getElementById('marked').innerHTML =
-        marked.parse('# Marked in the browser\n\nRendered by **marked**.');
+      try {
+              // 1. Fetch your .md file
+              const response = await fetch('content.md');
+              if (!response.ok) throw new Error('Could not load markdown file');
+      
+              // 2. Convert response to plain text
+              const markdownText = await response.text();
+        }
     </script>
   </body>
 </html>
