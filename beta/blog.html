@@ -4,7 +4,7 @@
     <div id="marked">
     </div>
     <script type="module"> 
-      import marked from 'https://cdn.jsdelivr.net/npm/marked@18.0.11/+esm
+      import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
       document.getElementById('marked').innerHTML =
         marked.parse('# Marked in the browser\n\nRendered by **marked**.');
     </script>
