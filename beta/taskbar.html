@@ -7,7 +7,7 @@
         align-items: center;
         position: fixed;
       }
-      .start-button {
+      .start-button-container {
         flex-shrink: 0;
         width: 99px;
         border: none;
@@ -20,8 +20,10 @@
       }
     </style>
     <div id="taskbar" class="taskbar-root">
-      <div class="start-button">
-        <img src="assets/taskbar/start0.png">
+      <div class="start-button-container">
+        <button id="start-button">
+          <img src="assets/taskbar/start0.png">
+        </button>
       </div>
     </div>
   </body>
