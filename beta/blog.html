@@ -1,10 +1,12 @@
 <html>
   <head></head>
   <body>
-    <div>
-      <h1 style="background-color: yellow; color: black">Blog Entry:</h1>
-      <h3 style="color: aqua">1</h3>
-      <link rel="stylesheet" href="https://cdn.cursors-4u.net/cursors/animated/konata-izumi-dancing-68cd9a9b-32.css">
+    <div id="marked">
     </div>
+    <script type="module"> 
+      import marked from 'https://cdn.jsdelivr.net/npm/marked@18.0.11/+esm
+      document.getElementById('content').innerHTML =
+        marked.parse('# Marked in the browser\n\nRendered by **marked**.');
+    </script>
   </body>
 </html>
