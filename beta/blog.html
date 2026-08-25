@@ -1,5 +1,7 @@
 <html>
-  <head></head>
+  <head>
+    <title id="title"></title>
+  </head>
   <body>
     <div id="marked">
     </div>
@@ -10,6 +12,17 @@
     
       const markdownText = await response.text();
       document.getElementById('marked').innerHTML = marked.parse(markdownText);
+  
+     // const commentRegex = /<!--\s*(\d+)\s*-->/;
+      
+     // const match = markdownContent.match(commentRegex);
+      
+     // if (match) {
+        // match[0] is the full comment string (e.g., "<!-- 42 -->")
+        // match[1] is the captured number inside the parenthesis (e.g., "42")
+       // const extractedNumber = parseInt(match[1], 10);
+        // document.title = extractedNumber;
+
     </script>
     <div class="giscus"></div>
     <script src="https://giscus.app/client.js"
@@ -17,7 +30,7 @@
         data-repo-id="R_kgDORMbzsQ"
         data-category="General"
         data-category-id="DIC_kwDORMbzsc4DELp0"
-        data-mapping="pathname"
+        data-mapping="title"
         data-strict="0"
         data-reactions-enabled="1"
         data-emit-metadata="0"
