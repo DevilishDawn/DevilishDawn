@@ -148,6 +148,7 @@
       webamp.renderWhenReady(document.getElementById("app")).then(() => {
         const enableAutoplay = () => {
           webamp.play();
+          webamp.toggleRepeat();
           document.removeEventListener("click", enableAutoplay);
         };
         document.addEventListener("click", enableAutoplay);
