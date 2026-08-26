@@ -40,9 +40,9 @@
       // 2. Define the target text and your replacement image HTML
       const targetText = "$$kona1$$";
       const imageHtml = '<img src="" alt="Star Image" width="20" height="20" />';
+      container.innerHTML = container.innerHTML.replaceAll(targetText, "imageHtml")
       
       // 3. Create a global Regular Expression to find all occurrences
-      const regex = new RegExp(targetText, "g");
       
       // 4. Replace the text inside the HTML and update the container
       container.innerHTML = container.innerHTML.replace(regex, imageHtml);
