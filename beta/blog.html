@@ -32,6 +32,20 @@
       data-page-title="{{ PAGE_TITLE }}"
     ></div>
     <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-
+    
+    <script>
+      // 1. Select the container element
+      const container = document.getElementById("cusdis=thread");
+      
+      // 2. Define the target text and your replacement image HTML
+      const targetText = "%%kona1%%";
+      const imageHtml = '<img src="" alt="Star Image" width="20" height="20" />';
+      
+      // 3. Create a global Regular Expression to find all occurrences
+      const regex = new RegExp(targetText, "g");
+      
+      // 4. Replace the text inside the HTML and update the container
+      container.innerHTML = container.innerHTML.replace(regex, imageHtml);
+    </script>
   </body>
 </html>
