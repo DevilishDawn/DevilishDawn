@@ -9,7 +9,7 @@ function getTime() {
   hours = hours ? hours : 12; // The hour '0' should be '12'
   const formattedHours = hours.toString().padStart(2, '0');
   const timeString = `${formattedHours}:${minutes}:${seconds} ${ampm}`;
-  document.getElementById('clock').textContent = timeString;
+  document.getElementById('Clock-1').textContent = timeString;
 }
 
 // Run the clock immediately when the page loads
