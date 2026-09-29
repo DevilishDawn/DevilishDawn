@@ -12,31 +12,37 @@
         </div>  
     </div>
     <script>
-      const hourHand = document.getElementById('hour-hand');
-      const minuteHand = document.getElementById('minute-hand');
-      const secondHand = document.getElementById('second-hand');
-      
-      function updateClock() {
-          const now = new Date();
-          
-          const seconds = now.getSeconds();
-          const minutes = now.getMinutes();
-          const hours = now.getHours();
-      
-          // Calculate rotation angles
-          const secondDegrees = seconds * 6; 
-          const minuteDegrees = (minutes * 6) + (seconds * 0.1); 
-          const hourDegrees = ((hours % 12) * 30) + (minutes * 0.5); 
-      
-          // Apply CSS rotations
-          secondHand.style.transform = `translateX(-50%) rotate(${secondDegrees}deg)`;
-          minuteHand.style.transform = `translateX(-50%) rotate(${minuteDegrees}deg)`;
-          hourHand.style.transform = `translateX(-50%) rotate(${hourDegrees}deg)`;
-      }
-      
-      // Run the clock immediately, then update every 1000ms (1 second)
-      setInterval(updateClock, 1000);
-      updateClock();
+      function runLuckyClock() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const hourHand = document.getElementById('hour-hand');
+    const minuteHand = document.getElementById('minute-hand');
+    const secondHand = document.getElementById('second-hand');
+
+    // --- ACCURATE CLOCKWISE ROTATION MATH ---
+    // Seconds: 360 degrees / 60 seconds = 6 degrees per tick
+    const secondDegrees = seconds * 6;
+
+    // Minutes: 6 degrees per minute, plus 0.1 degree for every passing second
+    const minuteDegrees = (minutes * 6) + (seconds * 0.1);
+
+    // Hours: 30 degrees per hour (360 / 12), plus 0.5 degrees per minute so it glides smoothly between numbers
+    const hourDegrees = ((hours % 12) * 30) + (minutes * 0.5);
+
+    // --- APPLY ALIGNMENT SAFE TRANSFORMS ---
+    if (secondHand) secondHand.style.transform = `translateX(-50%) rotate(${secondDegrees}deg)`;
+    if (minuteHand) minuteHand.style.transform = `translateX(-50%) rotate(${minuteDegrees}deg)`;
+    if (hourHand)   hourHand.style.transform   = `translateX(-50%) rotate(${hourDegrees}deg)`;
+}
+
+// Fire calculation instantly on page load
+runLuckyClock();
+
+// Refresh rotation states every 1 second
+setInterval(runLuckyClock, 1000);
 
     </script>
     <style>
