@@ -1,13 +1,109 @@
+<!-- This clock widget CODE is made using AI, The actual artwork comes from the konatabox cdrom! -->
 <html>
   <head></head>
   <body>
-    <div id="my-clock" style="">
+    <div class="clock" style="">
       <img src="assets/widgets/clock.png"></img>
+      <div class="hand hour" id="hour-hand"></div>
+      <div class="hand minute" id="minute-hand"></div>
+      <div class="hand second" id="second-hand"></div>
+      <div class="center-pin"></div>
     </div>
     <script>
+      const hourHand = document.getElementById('hour-hand');
+      const minuteHand = document.getElementById('minute-hand');
+      const secondHand = document.getElementById('second-hand');
+      
+      function updateClock() {
+          const now = new Date();
+          
+          const seconds = now.getSeconds();
+          const minutes = now.getMinutes();
+          const hours = now.getHours();
+      
+          // Calculate rotation angles
+          const secondDegrees = seconds * 6; 
+          const minuteDegrees = (minutes * 6) + (seconds * 0.1); 
+          const hourDegrees = ((hours % 12) * 30) + (minutes * 0.5); 
+      
+          // Apply CSS rotations
+          secondHand.style.transform = `translateX(-50%) rotate(${secondDegrees}deg)`;
+          minuteHand.style.transform = `translateX(-50%) rotate(${minuteDegrees}deg)`;
+          hourHand.style.transform = `translateX(-50%) rotate(${hourDegrees}deg)`;
+      }
+      
+      // Run the clock immediately, then update every 1000ms (1 second)
+      setInterval(updateClock, 1000);
+      updateClock();
 
     </script>
     <style>
+            * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          background: #1a1a2e;
+      }
+      
+      /* Clock Face */
+      .clock {
+          width: 300px;
+          height: 300px;
+          background: #162447;
+          border: 8px solid #e43f5a;
+          border-radius: 50%;
+          position: relative;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      }
+      
+      /* Center Pin */
+      .center-pin {
+          width: 12px;
+          height: 12px;
+          background: #fff;
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 10;
+      }
+      
+      /* Base Hand Styles */
+      .hand {
+          position: absolute;
+          bottom: 50%;
+          left: 50%;
+          transform-origin: bottom center; /* Rotates from the bottom base */
+          transform: translateX(-50%) rotate(0deg);
+          border-radius: 4px;
+      }
+      
+      /* Individual Hand Dimensions */
+      .hour {
+          width: 6px;
+          height: 60px;
+          background: #fff;
+      }
+      
+      .minute {
+          width: 4px;
+          height: 85px;
+          background: #a2a8d3;
+      }
+      
+      .second {
+          width: 2px;
+          height: 95px;
+          background: #e43f5a;
+      }
     </style>
   </body>
 </html>
