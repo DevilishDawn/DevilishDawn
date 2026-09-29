@@ -12,7 +12,7 @@ Welcome to my blog!
 
 3. **Have a Picture of Konata!**
 
-![1](https://github.com/DevilishDawn/DevilishDawn/blob/main/beta/assets/widgets/clock.png)
+<img src="https://github.com/DevilishDawn/DevilishDawn/blob/main/beta/assets/widgets/clock.png"></img>
 
 ## What's next?
 Its a surprise :3 
