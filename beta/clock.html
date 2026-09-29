@@ -4,10 +4,12 @@
   <body>
     <div class="clock" style="">
       <img src="assets/widgets/clock.png"></img>
-      <div class="hand hour" id="hour-hand"></div>
-      <div class="hand minute" id="minute-hand"></div>
-      <div class="hand second" id="second-hand"></div>
-      <div class="center-pin"></div>
+      <div class="pivot">
+        <div class="hand hour" id="hour-hand"></div>
+        <div class="hand minute" id="minute-hand"></div>
+        <div class="hand second" id="second-hand"></div>
+        <div class="center-pin"></div>
+      </div>
     </div>
     <script>
       const hourHand = document.getElementById('hour-hand');
@@ -38,72 +40,91 @@
 
     </script>
     <style>
-            * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-      }
-      
-      body {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 100vh;
-          background: #1a1a2e;
-      }
-      
-      /* Clock Face */
-      .clock {
-          width: 300px;
-          height: 300px;
-          background: #162447;
-          border: 8px solid #e43f5a;
-          border-radius: 50%;
-          position: relative;
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      }
-      
-      /* Center Pin */
-      .center-pin {
-          width: 12px;
-          height: 12px;
-          background: #fff;
-          border-radius: 50%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 10;
-      }
-      
-      /* Base Hand Styles */
-      .hand {
-          position: absolute;
-          bottom: 50%;
-          left: 50%;
-          transform-origin: bottom center; /* Rotates from the bottom base */
-          transform: translateX(-50%) rotate(0deg);
-          border-radius: 4px;
-      }
-      
-      /* Individual Hand Dimensions */
-      .hour {
-          width: 6px;
-          height: 60px;
-          background: #fff;
-      }
-      
-      .minute {
-          width: 4px;
-          height: 85px;
-          background: #a2a8d3;
-      }
-      
-      .second {
-          width: 2px;
-          height: 95px;
-          background: #e43f5a;
-      }
+           * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+          body {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              min-height: 100vh;
+              background-color: #222; /* Dark backing to focus on the widget */
+          }
+          
+          /* Master container matches the native dimensions of the extracted graphic */
+          .konata-gadget-frame {
+              position: relative;
+              width: 220px;   /* Set this to match the preferred size of your file */
+              height: auto;
+              display: inline-block;
+              user-select: none;
+          }
+          
+          /* Background image filling the entire gadget canvas */
+          .gadget-texture {
+              width: 100%;
+              height: auto;
+              display: block;
+          }
+          
+          /* The true center coordinates of the black dial inside the image texture */
+          .clock-pivot-anchor {
+              position: absolute;
+              left: 66%;     /* Positions horizontally exactly over the central bolt */
+              top: 55.4%;    /* Positions vertically exactly over the central bolt */
+              width: 0;
+              height: 0;
+              z-index: 10;
+          }
+          
+          /* Clock hands styling pivoting outwards from the center coordinate */
+          .hand {
+              position: absolute;
+              bottom: 0; 
+              left: 50%;
+              transform-origin: bottom center;
+              transform: translateX(-50%) rotate(0deg);
+              border-radius: 2px;
+          }
+          
+          /* Hand lengths scaled to fit inside the texture's black dial */
+          .hour {
+              width: 3.5px;
+              height: 38px;
+              background: #ffffff;
+              box-shadow: 0 0 3px rgba(0,0,0,0.5);
+          }
+          
+          .minute {
+              width: 2.5px;
+              height: 56px;
+              background: #ffffff;
+              box-shadow: 0 0 3px rgba(0,0,0,0.5);
+          }
+          
+          .second {
+              width: 1.5px;
+              height: 62px;
+              background: #ff3b3b; /* Red ticking second hand */
+          }
+          
+          /* Small center cap overlays the hand seam */
+          .center-pin {
+              width: 8px;
+              height: 8px;
+              background: #666;
+              border: 1.5px solid #fff;
+              border-radius: 50%;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: 15;
+          }
+          
     </style>
   </body>
 </html>
