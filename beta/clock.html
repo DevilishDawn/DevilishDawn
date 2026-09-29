@@ -3,14 +3,13 @@
   <head></head>
   <body>
     <div class="clock" style="">
-      <img src="assets/widgets/clock.png">
-        <div class="pivot">
-          <div class="hand hour" id="hour-hand"></div>
-          <div class="hand minute" id="minute-hand"></div>
-          <div class="hand second" id="second-hand"></div>
-          <div class="center-pin"></div>
-        </div>
-      </img>
+      <img src="assets/widgets/clock.png"></img>
+      <div class="pivot">
+        <div class="hand hour" id="hour-hand"></div>
+        <div class="hand minute" id="minute-hand"></div>
+        <div class="hand second" id="second-hand"></div>
+        <div class="center-pin"></div>
+      </div>
     </div>
     <script>
       const hourHand = document.getElementById('hour-hand');
@@ -41,91 +40,91 @@
 
     </script>
     <style>
-           * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-          body {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              min-height: 100vh;
-              background-color: #222; /* Dark backing to focus on the widget */
-          }
-          
-          /* Master container matches the native dimensions of the extracted graphic */
-          .konata-gadget-frame {
-              position: relative;
-              width: 220px;   /* Set this to match the preferred size of your file */
-              height: auto;
-              display: inline-block;
-              user-select: none;
-          }
-          
-          /* Background image filling the entire gadget canvas */
-          .gadget-texture {
-              width: 100%;
-              height: auto;
-              display: block;
-          }
-          
-          /* The true center coordinates of the black dial inside the image texture */
-          .clock-pivot-anchor {
-              position: absolute;
-              left: 66%;     /* Positions horizontally exactly over the central bolt */
-              top: 55.4%;    /* Positions vertically exactly over the central bolt */
-              width: 0;
-              height: 0;
-              z-index: 10;
-          }
-          
-          /* Clock hands styling pivoting outwards from the center coordinate */
-          .hand {
-              position: absolute;
-              bottom: 0; 
-              left: 50%;
-              transform-origin: bottom center;
-              transform: translateX(-50%) rotate(0deg);
-              border-radius: 2px;
-          }
-          
-          /* Hand lengths scaled to fit inside the texture's black dial */
-          .hour {
-              width: 3.5px;
-              height: 38px;
-              background: #ffffff;
-              box-shadow: 0 0 3px rgba(0,0,0,0.5);
-          }
-          
-          .minute {
-              width: 2.5px;
-              height: 56px;
-              background: #ffffff;
-              box-shadow: 0 0 3px rgba(0,0,0,0.5);
-          }
-          
-          .second {
-              width: 1.5px;
-              height: 62px;
-              background: #ff3b3b; /* Red ticking second hand */
-          }
-          
-          /* Small center cap overlays the hand seam */
-          .center-pin {
-              width: 8px;
-              height: 8px;
-              background: #666;
-              border: 1.5px solid #fff;
-              border-radius: 50%;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              z-index: 15;
-          }
-          
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #282c34; /* Dark canvas makes the desktop widget pop */
+}
+
+/* 1. Master graphic wrapper dimensions */
+.lucky-star-widget {
+    position: relative;
+    width: 220px; /* Scales the entire widget smoothly while keeping hands aligned */
+    height: auto;
+    display: inline-block;
+    user-select: none;
+}
+
+/* 2. Flat application texture background */
+.widget-base {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 3. True layout center of the clock circle inside the image */
+.hands-anchor {
+    position: absolute;
+    left: 66%;      /* Moves horizontally onto the metallic pinhead axis */
+    top: 55.4%;     /* Moves vertically onto the metallic pinhead axis */
+    width: 0;
+    height: 0;
+    z-index: 10;
+}
+
+/* 4. Core behavior rules for individual hands */
+.hand {
+    position: absolute;
+    bottom: 0; 
+    left: 50%;
+    transform-origin: bottom center; /* Pivot neatly from the anchor point */
+    transform: translateX(-50%) rotate(0deg);
+    border-radius: 2px;
+}
+
+/* Hand sizing tailored to fit perfectly within the graphic's ticks */
+.hour {
+    width: 3px;
+    height: 38px;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.minute {
+    width: 2.2px;
+    height: 56px;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.second {
+    width: 1.2px;
+    height: 62px;
+    background: #ff3b3b; /* Distinctive red ticker style */
+}
+
+/* Small central cover cap matching the core pin */
+.center-pin-cap {
+    width: 8px;
+    height: 8px;
+    background: #666666;
+    border: 1.5px solid #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+}
+
     </style>
   </body>
 </html>
