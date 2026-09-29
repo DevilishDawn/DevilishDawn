@@ -70,8 +70,132 @@
     </style>
   </head>
   <body>
-    <div class="main" id="main" style="">
-      <iframe src="clock.html" class="konaclock"style="position: fixed; top: 0; right: 0; width: 100%; height: 30px; border: none; z-index: -1;"></iframe>
+        <div class="main" id="main" style="">
+          <div class="lucky-star-widget">
+            <div class="hands-pivot">
+                <div class="hand hour" id="hour-hand"></div>
+                <div class="hand minute" id="minute-hand"></div>
+                <div class="hand second" id="second-hand"></div>
+                <div class="center-pin"></div>
+            </div>  
+        </div>
+        <script>
+          function runLuckyClock() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+    
+        const hourHand = document.getElementById('hour-hand');
+        const minuteHand = document.getElementById('minute-hand');
+        const secondHand = document.getElementById('second-hand');
+    
+        // --- ACCURATE CLOCKWISE ROTATION MATH ---
+        // Seconds: 360 degrees / 60 seconds = 6 degrees per tick
+        const secondDegrees = seconds * 6;
+    
+        // Minutes: 6 degrees per minute, plus 0.1 degree for every passing second
+        const minuteDegrees = (minutes * 6) + (seconds * 0.1);
+    
+        // Hours: 30 degrees per hour (360 / 12), plus 0.5 degrees per minute so it glides smoothly between numbers
+        const hourDegrees = ((hours % 12) * 30) + (minutes * 0.5);
+    
+        // --- APPLY ALIGNMENT SAFE TRANSFORMS ---
+        if (secondHand) secondHand.style.transform = `translateX(-50%) rotate(${secondDegrees}deg)`;
+        if (minuteHand) minuteHand.style.transform = `translateX(-50%) rotate(${minuteDegrees}deg)`;
+        if (hourHand)   hourHand.style.transform   = `translateX(-50%) rotate(${hourDegrees}deg)`;
+    }
+    
+    // Fire calculation instantly on page load
+    runLuckyClock();
+    
+    // Refresh rotation states every 1 second
+    setInterval(runLuckyClock, 1000);
+    
+        </script>
+        <style>
+          
+          * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* This container acts as the literal image frame */
+    .lucky-star-widget {
+        position: relative;
+        width: 220px;                      /* Exact width of your extracted asset */
+        height: 200px;                     /* Exact height of your extracted asset */
+        background-image: url('assets/widgets/clock.png'); /* Overlays your image flat */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        user-select: none;
+    }
+    
+    /* The true inner layout center of the clock dial face */
+    .hands-pivot {
+        position: absolute;
+        left: 140px;    /* Pixel offset from the left edge to the metal pin */
+        top: 108px;     /* Pixel offset from the top edge to the metal pin */
+        width: 0;
+        height: 0;
+        z-index: 10;
+    }
+    
+    /* Structural placement for the hands rotating from the pivot point */
+    .hand {
+        position: absolute;
+        bottom: 0; 
+        left: 50%;
+        transform-origin: bottom center;
+        transform: translateX(-50%) rotate(0deg);
+        border-radius: 2px;
+    }
+    
+    /* Individual hand scales */
+    .hour {
+        width: 3px;
+        height: 38px;
+        background: #ffffff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    
+    .minute {
+        width: 2.2px;
+        height: 54px;
+        background: #ffffff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    
+    .second {
+        width: 1.2px;
+        height: 60px;
+        background: #ff3b3b;
+    }
+    
+    /* Center pin overlay */
+    .center-pin {
+        width: 8px;
+        height: 8px;
+        background: #666666;
+        border: 1.5px solid #ffffff;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 15;
+    }
+    
+        
+        </style>
       <iframe src="taskbar.html" class="taskbar" style="position: fixed; bottom: 0; left: 0; width: 100%; height: 30px; border: none; z-index: -1; /* Keeps the iframe on top of other content */"></iframe>
       <div id="app" class="" style="height: 232px; width: 275px"></div>
       <div class="widget" id="desktop-icons">
