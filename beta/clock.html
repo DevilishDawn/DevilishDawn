@@ -51,46 +51,45 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #2c2f33; /* Dark gray to match your screenshot */
+    background-color: #2c2f33;
 }
 
-/* Master container keeps everything grouped in the screen center */
+/* 1. Locked to the exact native pixel dimensions of your extracted graphic */
 .lucky-star-widget {
-    position: relative; /* CRITICAL: Keeps absolute elements bound inside here */
-    width: 220px;       /* Keeps the widget at an authentic desktop size */
-    height: auto;
-    display: inline-block;
+    position: relative; 
+    width: 220px;       
+    height: 200px;
     user-select: none;
 }
 
-/* Base image rules */
+/* Base image asset rules */
 .widget-base {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
 }
 
-/* Moves the hands pivot point exactly onto the texture's pin head */
+/* 2. Placed using the exact native coordinates from the image canvas */
 .hands-anchor {
     position: absolute;
-    left: 66%;      /* Moves horizontally over the image pinhead */
-    top: 55.4%;     /* Moves vertically over the image pinhead */
+    left: 145px;    /* Exact X pixel coordinate */
+    top: 111px;     /* Exact Y pixel coordinate */
     width: 0;
     height: 0;
     z-index: 10;
 }
 
-/* Base style for individual hands positioning */
+/* Structural layout for the hands */
 .hand {
     position: absolute;
-    bottom: 0;      /* Roots the base of the hands to the pin center */
+    bottom: 0;      
     left: 50%;
-    transform-origin: bottom center; /* Pivot neatly from the anchor point */
+    transform-origin: bottom center; 
     transform: translateX(-50%) rotate(0deg);
     border-radius: 2px;
 }
 
-/* Hand lengths tailored to fit inside the dark dial circle */
+/* Hand lengths scaled to fit inside the 220x200 dial circle */
 .hour {
     width: 3px;
     height: 38px;
@@ -108,7 +107,7 @@ body {
 .second {
     width: 1.2px;
     height: 62px;
-    background: #ff3b3b; /* Red ticking line */
+    background: #ff3b3b; 
 }
 
 /* Small central pin cap over the center axis */
@@ -124,6 +123,7 @@ body {
     transform: translate(-50%, -50%);
     z-index: 15;
 }
+
     </style>
   </body>
 </html>
