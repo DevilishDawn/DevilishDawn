@@ -2,7 +2,7 @@
 <html>
   <head></head>
   <body>
-    <div class="clock" style="">
+    <div class="lucky-star-widget" style="">
       <img src="assets/widgets/clock.png" class="widget-base"></img>
       <div class="pivot">
         <div class="hand hour" id="hour-hand"></div>
@@ -51,46 +51,46 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #282c34; /* Dark canvas makes the desktop widget pop */
+    background-color: #2c2f33; /* Dark gray to match your screenshot */
 }
 
-/* 1. Master graphic wrapper dimensions */
+/* Master container keeps everything grouped in the screen center */
 .lucky-star-widget {
-    position: relative;
-    width: 220px; /* Scales the entire widget smoothly while keeping hands aligned */
+    position: relative; /* CRITICAL: Keeps absolute elements bound inside here */
+    width: 220px;       /* Keeps the widget at an authentic desktop size */
     height: auto;
     display: inline-block;
     user-select: none;
 }
 
-/* 2. Flat application texture background */
+/* Base image rules */
 .widget-base {
     width: 100%;
     height: auto;
     display: block;
 }
 
-/* 3. True layout center of the clock circle inside the image */
+/* Moves the hands pivot point exactly onto the texture's pin head */
 .hands-anchor {
     position: absolute;
-    left: 66%;      /* Moves horizontally onto the metallic pinhead axis */
-    top: 55.4%;     /* Moves vertically onto the metallic pinhead axis */
+    left: 66%;      /* Moves horizontally over the image pinhead */
+    top: 55.4%;     /* Moves vertically over the image pinhead */
     width: 0;
     height: 0;
     z-index: 10;
 }
 
-/* 4. Core behavior rules for individual hands */
+/* Base style for individual hands positioning */
 .hand {
     position: absolute;
-    bottom: 0; 
+    bottom: 0;      /* Roots the base of the hands to the pin center */
     left: 50%;
     transform-origin: bottom center; /* Pivot neatly from the anchor point */
     transform: translateX(-50%) rotate(0deg);
     border-radius: 2px;
 }
 
-/* Hand sizing tailored to fit perfectly within the graphic's ticks */
+/* Hand lengths tailored to fit inside the dark dial circle */
 .hour {
     width: 3px;
     height: 38px;
@@ -108,10 +108,10 @@ body {
 .second {
     width: 1.2px;
     height: 62px;
-    background: #ff3b3b; /* Distinctive red ticker style */
+    background: #ff3b3b; /* Red ticking line */
 }
 
-/* Small central cover cap matching the core pin */
+/* Small central pin cap over the center axis */
 .center-pin-cap {
     width: 8px;
     height: 8px;
@@ -124,7 +124,6 @@ body {
     transform: translate(-50%, -50%);
     z-index: 15;
 }
-
     </style>
   </body>
 </html>
