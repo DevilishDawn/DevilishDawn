@@ -1,6 +1,6 @@
 # My First Blog Post
 
-Published on: 8/26/26
+Published on: 9/29/26
 
 Welcome to my blog!
 
@@ -8,7 +8,11 @@ Welcome to my blog!
 
 1. **Who Am I?**: I am Dawn, I am a beginner software developer and web designer, I have a liking for 2000s internet themes, trends, and music, as you likely can see -w-"
 
-2. **Making Comments**: FINISHED! We are powered by Cusdis, with many other features on the way!
+2. **Whats been going on?**: I have been working on other things, so my portfolio is a little dry, but I am working on new features!
+
+3. **Have a Picture of Konata!**
+
+![1](https://github.com/DevilishDawn/DevilishDawn/blob/main/beta/assets/widgets/clock.png)
 
 ## What's next?
-Watch this space for more to come!
+Its a surprise :3 
