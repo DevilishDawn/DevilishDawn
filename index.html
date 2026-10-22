@@ -35,7 +35,9 @@
       </div>
     </div>
     <script>
-      var dragInstance = new NeoDrag.Draggable(document.getElementById('window'));
+      var dragInstance = new NeoDrag.Draggable(document.getElementById('window'), {
+        handle: '.handle' 
+      });
     </script>
   </body>
 </html>
